@@ -1,0 +1,51 @@
+<div class="container">
+<table class="table table-sm">
+    <caption>List of vehicles</caption>
+    <thead>
+        <tr>
+            <th scope="col"> Plates</th>
+            <th scope="col"> Brand</th>
+            <th scope="col"> Color</div>
+            <th scope="col"> Model</div>
+            <th scope="col"> Latitude</div>
+            <th scope="col"> Longitude</div>
+        </tr>
+    </thead>
+<tbody>
+    {{#each vehicles}}
+    <tr>
+        <td>{{plates}}</td>
+        <td>{{brand}}</td>
+        <td>{{color}}</td>
+        <td>{{model_year}}</td>
+        <td>{{lat}}</td>
+        <td>{{lon}}</td>
+        <td>
+            <a href="/links/edit/{{id}}" class="btn btn-outline-primary btn-sm">Edit</a>
+        </td>
+        <td>
+            <a href="/links/delete/{{id}}" class="btn btn-outline-danger btn-sm">Delete</a>
+        </td>
+    </tr>
+    {{else}}
+    <div class="col-md-4 mx-auto">
+        <div class="card card-body text-center">
+            <p>There are not vehicles yet </p>
+            <a href="/links/add"> Add one !</a>
+        </div>
+    </div>
+    {{/each}}    
+</tbody>
+</table>
+</div>
+<div class="container mx-auto">
+    <div class="row w-100">
+        <div class="col-lg-6 my-4">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d71027.5417788256!2d-103.3831960689054!3d20.67261668189787!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b18cb52fd39b%3A0xd63d9302bf865750!2sGuadalajara%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1721430612215!5m2!1ses-419!2smx" 
+                width="1000" height="350" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</div>
+  
