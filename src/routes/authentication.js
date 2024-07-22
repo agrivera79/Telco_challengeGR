@@ -33,7 +33,7 @@ router.get('/profile', isLoggedIn, (req,res) => {
 router.get('/logout', (req,res, next) => {
     req.logOut(req.user, err => {
         if (err) return next(err);
-        res.redirect('/signin');
+        res.redirect('/');
     });
 });
 

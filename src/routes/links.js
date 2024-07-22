@@ -26,8 +26,18 @@ router.post('/add', isLoggedIn, async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-    const vehicles = await pool.query('SELECT * FROM vehicles WHERE user_id = ?', [req.user.id]);
-    res.render('links/list', { vehicles })
+    const strAdmin = "admin";
+    const username = req.user.username;
+
+    if( username === strAdmin){
+       const vehicles = await pool.query('SELECT * FROM vehicles');
+       res.render('links/list', { vehicles })
+    }
+    else{
+        const vehicles = await pool.query('SELECT * FROM vehicles WHERE user_id = ?', [req.user.id]);
+        res.render('links/list', { vehicles })
+    }
+
 })
 
 router.get('/delete/:id', isLoggedIn, async (req,res) => {
